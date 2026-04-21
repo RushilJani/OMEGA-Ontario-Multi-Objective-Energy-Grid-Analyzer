@@ -1,5 +1,14 @@
 # ⚡ OMEGA — Ontario Multi-Objective Energy Grid Analyzer
 
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.10+-blue?style=for-the-badge&logo=python"/>
+  <img src="https://img.shields.io/badge/TensorFlow-LSTM-orange?style=for-the-badge&logo=tensorflow"/>
+  <img src="https://img.shields.io/badge/XGBoost-Ensemble-green?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/PuLP-Optimization-red?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/PowerBI-Dashboard-yellow?style=for-the-badge&logo=powerbi"/>
+</p>
+
+
 > **DAMO 699 — Capstone Project | Master of Data Analytics**
 > University of Niagara Falls | Spring 2026
 > Supervisor: Prof. Hany Osman
