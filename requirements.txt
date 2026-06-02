@@ -8,3 +8,9 @@ pulp==2.7.0
 matplotlib==3.7.2
 seaborn==0.12.2
 jupyter==1.0.0
+streamlit
+pandas
+numpy
+matplotlib
+scikit-learn
+pulp
