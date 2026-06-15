@@ -59,32 +59,44 @@ OMEGA (Ontario Multi-Objective Energy Grid Analyzer) is a **two-module end-to-en
 ### System Architecture
 
 ```
-┌─────────────────────────────────────────────────────┐
-│              OMEGA Pipeline                         │
-│                                                     │
-│  Historical Data (2015–2025, 96,264 hours)          │
-│           │                                         │
-│           ▼                                         │
-│  ┌─────────────────────┐                            │
-│  │  MODULE 1           │                            │
-│  │  Stacking Ensemble  │ ──► 24-hour forecasts:     │
-│  │  GBM + RF + LSTM    │     - Electricity Demand   │
-│  │  ──► Ridge          │     - Solar Generation     │
-│  │  Meta-Learner       │     - Wind Generation      │
-│  └─────────────────────┘                            │
-│           │                                         │
-│           ▼                                         │
-│  ┌─────────────────────┐                            │
-│  │  MODULE 2           │                            │
-│  │  Carbon-Priced MILP │ ──► Optimal dispatch:      │
-│  │  6 Technologies     │     - 6 carbon scenarios   │
-│  │  10 Constraints     │     - Cost vs. CO₂ Pareto  │
-│  │  6 Carbon Scenarios │     - Real-world impact    │
-│  └─────────────────────┘                            │
-└─────────────────────────────────────────────────────┘
-```
+┌──────────────────────────────────────────────────────────────────┐
+│                          OMEGA PIPELINE                          │
+│           Ontario Multi-Objective Energy Grid Analyzer           │
+│                                                                  │
+│  ┌──────────────────────────┐                                    │
+│  │ HISTORICAL DATA          │                                    │
+│  │ Ontario IESO, 2015-2025  │                                    │
+│  │ 96,264 hourly rows       │                                    │
+│  │ 46 input features        │                                    │
+│  └──────────────────────────┘                                    │
+│                │                                                 │
+│                ▼                                                 │
+│  ┌──────────────────────────┐                                    │
+│  │ MODULE 1                 │   ──►  24-hour forecasts:          │
+│  │ Stacking Ensemble        │         • Electricity demand       │
+│  │ Base: GBM · RF · LSTM    │         • Solar generation         │
+│  │ Meta: Ridge regressor    │         • Wind generation          │
+│  └──────────────────────────┘                                    │
+│                │                                                 │
+│                ▼                                                 │
+│  ┌──────────────────────────┐                                    │
+│  │ MODULE 2                 │   ──►  Optimal dispatch:           │
+│  │ Carbon-Priced LP / MILP  │         • Cost vs. CO₂ Pareto      │
+│  │ 6 techs · 10 constraints │         • Threshold ~ $80/t        │
+│  │ $0-$250/t · 6 scenarios  │         • CO₂ -13%, gas 13->9h     │
+│  └──────────────────────────┘                                    │
+│                │                                                 │
+│                ▼                                                 │
+│  ┌──────────────────────────┐                                    │
+│  │ MODULE 3                 │   ──►  Visual outputs:             │
+│  │ Interactive Dashboard    │         • Forecast & dispatch      │
+│  │ Streamlit · live controls│         • Cost-CO₂ Pareto          │
+│  │ Date + carbon selector   │         • Scenario comparison      │
+│  └──────────────────────────┘                                    │
+│                                                                  │
+│      │
+└──────────────────────────────────────────────────────────────────┘
 
----
 
 ## 2. 👥 Team
 
