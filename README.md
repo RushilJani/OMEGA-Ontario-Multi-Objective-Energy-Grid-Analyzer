@@ -1,4 +1,4 @@
-# ⚡ OMEGA — Ontario Multi-Objective Energy Grid Analyzer
+#  OMEGA — Ontario Multi-Objective Energy Grid Analyzer
 
 ![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-2.15-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
